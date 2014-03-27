@@ -1,6 +1,6 @@
-package gr.auth.meng.isag.autodao.internal;
+package gr.auth.meng.isag.autodao;
 
-import gr.auth.meng.isag.autodao.IPersistenceDAO;
+import gr.auth.meng.isag.autodao.internal.DAOAnalysis;
 
 import javax.persistence.EntityManager;
 
@@ -17,8 +17,9 @@ import org.apache.bcel.generic.Type;
 public class DAOAnalysisSimple
         extends DAOAnalysis
         implements Constants {
-    public DAOAnalysisSimple(Class<? extends IPersistenceDAO> itemClass) {
+    public DAOAnalysisSimple(Class<? extends IPersistenceDAO> itemClass) throws Exception {
         super(itemClass);
+        commence();
     }
 
     public IPersistenceDAO createInstance(EntityManager em)

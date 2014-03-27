@@ -5,6 +5,7 @@ import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import gr.auth.meng.isag.autodao.DAOAnalysisSimple;
 import gr.auth.meng.isag.autodao.IPersistenceDAO;
 import gr.auth.meng.isag.autodao.annotations.FirstResult;
 import gr.auth.meng.isag.autodao.annotations.MaxResults;
@@ -13,7 +14,6 @@ import gr.auth.meng.isag.autodao.annotations.NativeQuery;
 import gr.auth.meng.isag.autodao.annotations.Param;
 import gr.auth.meng.isag.autodao.annotations.Position;
 import gr.auth.meng.isag.autodao.annotations.Query;
-import gr.auth.meng.isag.autodao.internal.DAOAnalysisSimple;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,7 +37,6 @@ public abstract class DAOAnalysisTest
         if (analysis == null) {
             analysis = new DAOAnalysisSimple(klass);
             analysis.setDebug(true);
-            analysis.commence();
             amap.put(klass, analysis);
             instance = klass.cast(createInstance(analysis));
             JavaClass parse =
